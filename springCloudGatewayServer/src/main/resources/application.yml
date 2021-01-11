@@ -1,0 +1,26 @@
+server:
+  port: 8080
+ 
+spring:
+  application:
+    name: springCloudGatewayServer
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${random.value}
+    gateway:
+      routes:
+      - id: ProjectModule
+        uri: "http://localhost:8002"
+        predicates:
+        - Path= /project/**
+      - id: EventModule
+        uri: "http://localhost:8003"
+        predicates:
+        - Path= /eventService/**
+      - id: UserModule
+        uri: "http://localhost:8001"
+        predicates:
+        - Path= /user/**
