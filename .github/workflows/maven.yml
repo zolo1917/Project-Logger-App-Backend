@@ -22,11 +22,11 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build Event Service with Maven
-      run: mvn -B package --file EventService/pom.xml -DskipTests
+      run: mvn -B package --file EventService/pom.xml
     - name: Build User Service Service with Maven
-      run: mvn -B package --file UserService/pom.xml -DskipTests
+      run: mvn -B package --file UserService/pom.xml
     - name: Build spring Gateway Service Service with Maven
-      run: mvn -B package --file springCloudGatewayServer/pom.xml -DskipTests
+      run: mvn -B package --file springCloudGatewayServer/pom.xml
     - name: Build Project Service Service with Maven
-      run: mvn -B package --file projectLogger/ProjectService/pom.xml -DskipTests
+      run: mvn -B package --file projectLogger/ProjectService/pom.xml
       
