@@ -22,7 +22,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build Event Service with Maven
-      run: mvn -B package --file EventService/pom.xml
+      run: mvn -B package --file EventService/pom.xml -DskipTests
     - name: Build User Service Service with Maven
-      run: mvn -B package --file UserService/pom.xml
+      run: mvn -B package --file UserService/pom.xml -DskipTests
       
