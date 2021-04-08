@@ -25,4 +25,8 @@ jobs:
       run: mvn -B package --file EventService/pom.xml -DskipTests
     - name: Build User Service Service with Maven
       run: mvn -B package --file UserService/pom.xml -DskipTests
+    - name: Build spring Gateway Service Service with Maven
+      run: mvn -B package --file springCloudGatewayServer/pom.xml -DskipTests
+    - name: Build Project Service Service with Maven
+      run: mvn -B package --file projectLogger/ProjectService/pom.xml -DskipTests
       
