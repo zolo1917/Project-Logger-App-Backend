@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/EventService/EventService.iml" filepath="$PROJECT_DIR$/EventService/EventService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Project-Logger-App-Backend.iml" filepath="$PROJECT_DIR$/.idea/Project-Logger-App-Backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectLogger/ProjectService/ProjectService.iml" filepath="$PROJECT_DIR$/projectLogger/ProjectService/ProjectService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserService/UserService.iml" filepath="$PROJECT_DIR$/UserService/UserService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springCloudGatewayServer/springCloudGatewayServer.iml" filepath="$PROJECT_DIR$/springCloudGatewayServer/springCloudGatewayServer.iml" />
+    </modules>
+  </component>
+</project>
