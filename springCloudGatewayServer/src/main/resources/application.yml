@@ -19,7 +19,7 @@ spring:
       - id: EventModule
         uri: "http://localhost:8003"
         predicates:
-        - Path= /eventService/**
+        - Path= /event/**
       - id: UserModule
         uri: "http://localhost:8001"
         predicates:
