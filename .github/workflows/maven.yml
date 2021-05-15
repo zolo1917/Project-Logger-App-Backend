@@ -5,7 +5,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, feature/* ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -26,11 +26,11 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build Event Service with Maven
-      run: mvn -B package --file EventService/pom.xml
+      run: mvn clean install --file EventService/pom.xml
     - name: Build User Service Service with Maven
-      run: mvn -B package --file UserService/pom.xml
+      run: mvn clean install --file UserService/pom.xml
     - name: Build spring Gateway Service Service with Maven
-      run: mvn -B package --file springCloudGatewayServer/pom.xml
+      run: mvn clean install --file springCloudGatewayServer/pom.xml
     - name: Build Project Service Service with Maven
-      run: mvn -B package --file projectLogger/ProjectService/pom.xml
+      run: mvn clean install --file projectLogger/ProjectService/pom.xml
       
