@@ -15,10 +15,12 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Getter @Setter private Integer id;
+	@Getter @Setter private String username;
 	@Getter @Setter private String firstName;
 	@Getter @Setter private String lastName;
 	@Getter @Setter private Integer userStatus;
 	@Getter @Setter private String email;
 	@Getter @Setter private Date createdDate;
 	@Getter @Setter private Date modifiedDate;
+	@Getter @Setter private Boolean accountLock;
 }
