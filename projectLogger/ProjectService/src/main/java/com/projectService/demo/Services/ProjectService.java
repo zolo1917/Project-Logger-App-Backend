@@ -19,7 +19,7 @@ public class ProjectService {
 	
 	/**
 	 * Get all the projects for a selected user
-	 * @param project
+	 * @param userId
 	 * @return
 	 */
 	public List<Project> getAllProjectsForUser(Integer userId) {

@@ -6,3 +6,8 @@ spring:
     url: jdbc:h2:mem:testdb
     username: sa
     password: sa
+
+org:
+  hibernate:
+    dialect:
+      Dialect: org.hibernate.dialect.H2Dialect
