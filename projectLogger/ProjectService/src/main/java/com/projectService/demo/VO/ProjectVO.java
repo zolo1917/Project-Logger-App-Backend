@@ -1,4 +1,4 @@
-package com.projectService.demo.Models;
+package com.projectService.demo.VO;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -2,6 +2,7 @@ package com.projectService.demo.controller;
 
 import java.util.List;
 
+import com.projectService.demo.VO.ProjectVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +43,7 @@ public class ProjectController {
 	 * @return
 	 */
 	@GetMapping("/getProjects")
-	public List<Project> defaultEndpoint (@RequestParam Integer id) {
+	public List<Project> getProjects (@RequestParam Integer id) {
 		log.info("Gathering all projects for user with user Id : {}", id);
 		return projServ.getAllProjectsForUser(id);
 	}
