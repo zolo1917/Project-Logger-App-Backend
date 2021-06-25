@@ -16,8 +16,8 @@ import lombok.extern.slf4j.Slf4j;
  * @author adwai
  *
  */
-@Controller
-@RequestMapping("/eventService")
+@RestController
+@RequestMapping("/event")
 @CrossOrigin(origins = "*")
 @Slf4j
 public class EventController {
@@ -66,6 +66,16 @@ public class EventController {
 	public String deleteEvent(@RequestBody Event event) {
 		eventServ.deleteProject(event);
 		return "delete event successful";
+	}
+
+	/**
+	 * Get all the events for a specfic project
+	 * @Params project ID
+	 * @return
+	 */
+	@GetMapping("/getEventsForProject")
+	public List<Event> getEventsForProject(@RequestParam Integer id){
+		return eventServ.getEventsForProject(id);
 	}
 	
 }

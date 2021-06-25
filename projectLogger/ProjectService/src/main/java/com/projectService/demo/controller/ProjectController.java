@@ -48,4 +48,14 @@ public class ProjectController {
 		log.info("Deleting project with name : {} and Id : {}", project.getProjectName(), project.getId());
 		projServ.deleteProject(project);
 	}
+
+	/**
+	 * create an end point to get projects by ID
+	 * @Param project ID
+	 */
+	@GetMapping("/getProjectById")
+	public Project getProjectById (@RequestParam Integer id) {
+		log.info("Getting project with Project ID : {}", id);
+		return projServ.getProjectById(id);
+	}
 }
