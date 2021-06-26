@@ -2,7 +2,7 @@ package com.projectService.demo.controller;
 
 import java.util.List;
 
-import com.projectService.demo.VO.ProjectVO;
+import com.projectService.demo.Models.ProjectVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +38,7 @@ public class ProjectController {
 	 * @return
 	 */
 	@GetMapping("/getProjects")
-	public List<Project> getProjects (@RequestParam Integer id) {
+	public List<ProjectVO> getProjects (@RequestParam Integer id) {
 		log.info("Gathering all projects for user with user Id : {}", id);
 		return projServ.getAllProjectsForUser(id);
 	}
@@ -58,4 +58,5 @@ public class ProjectController {
 		log.info("Getting project with Project ID : {}", id);
 		return projServ.getProjectById(id);
 	}
+
 }
