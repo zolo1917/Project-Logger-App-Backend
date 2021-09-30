@@ -2,6 +2,7 @@ package com.EventService.demo.controller;
 
 import java.util.List;
 
+import com.EventService.demo.Model.EventVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -45,8 +46,8 @@ public class EventController {
 	/**
 	 * Save event for a Specific project
 	 */
-	@PostMapping("/saveProject")
-	public Event saveEvent(@RequestBody Event event) {
+	@PostMapping("/saveEvent")
+	public Event saveEvent(@RequestBody EventVO event) {
 		return eventServ.saveEvent(event);
 	}
 	
