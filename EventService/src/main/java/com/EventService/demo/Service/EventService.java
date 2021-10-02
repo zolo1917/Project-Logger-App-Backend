@@ -21,16 +21,16 @@ public class EventService {
 	public Event saveEvent(EventVO eventVO) {
 		log.info("Create new event" );
 		// Create a converter method for turning VO to event model
-		convertEventVOToEvent(eventVO);
-		return eventRepo.save(event);
+		return eventRepo.save(convertEventVOToEvent(eventVO));
 	}
 
 	private Event convertEventVOToEvent(EventVO eventVO){
 		Event event = new Event();
 		event.setEventTopic(eventVO.getTopic());
 		event.setEventStatus(eventVO.getStatus());
-		event.setEventDescription()
-		event.setProjectId();
+		event.setEventDescription(eventVO.getEventDesc());
+		event.setProjectId(eventVO.getProjId());
+		return event;
 	}
 	
 	public Event updateEvent(Event event) {

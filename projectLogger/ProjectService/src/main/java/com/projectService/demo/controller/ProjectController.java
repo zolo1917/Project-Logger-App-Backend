@@ -32,7 +32,7 @@ public class ProjectController {
 	/**
 	 * Get all projects with the current userid
 	 * get all events associated with said projects
-	 * ane create value objects taht will be the same format as the output
+	 * ane create value objects that will be the same format as the output
 	 *
 	 *  get all associated projects
 	 * @return
