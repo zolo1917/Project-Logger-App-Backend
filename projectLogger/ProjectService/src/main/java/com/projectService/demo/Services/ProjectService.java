@@ -3,6 +3,7 @@ package com.projectService.demo.Services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.projectService.demo.Models.ProjectVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +20,23 @@ public class ProjectService {
 	
 	/**
 	 * Get all the projects for a selected user
-	 * @param project
+	 * @param userId
 	 * @return
 	 */
-	public List<Project> getAllProjectsForUser(Integer userId) {
-		log.info("repository call for gathering projects");
+	public List<ProjectVO> getAllProjectsForUser(Integer userId) {
+		log.info("Calling for gathering projects");
 		List<Project> userProject = new ArrayList<Project>();
 		userProject = projRepo.findByUserId(userId);
-		return userProject;
+		List<ProjectVO> projectList = new ArrayList<>();
+		for (Project proj : userProject){
+			ProjectVO projVO = new ProjectVO();
+			projVO.setId(proj.getId());
+			projVO.setDetails(proj.getProjectDescription());
+			projVO.setSummary(proj.getSummary());
+			projVO.setName(proj.getProjectName());
+			projectList.add(projVO);
+		}
+		return projectList;
 	}
 
 	/**

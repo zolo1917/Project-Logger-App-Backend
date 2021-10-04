@@ -8,4 +8,4 @@ create table users (
     created_date date,
     modified_date date,
 	foreign key (user_status) references user_status_xref(id)
-)
+);

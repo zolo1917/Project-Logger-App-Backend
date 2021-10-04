@@ -2,14 +2,9 @@ package com.projectService.demo.controller;
 
 import java.util.List;
 
+import com.projectService.demo.Models.ProjectVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.projectService.demo.Models.Project;
 import com.projectService.demo.Services.ProjectService;
@@ -18,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/project")
+@CrossOrigin(origins = "*")
 @Slf4j
 public class ProjectController {
 	@Autowired
@@ -34,11 +30,15 @@ public class ProjectController {
 		return projServ.saveProject(project);
 	}
 	/**
+	 * Get all projects with the current userid
+	 * get all events associated with said projects
+	 * ane create value objects that will be the same format as the output
+	 *
 	 *  get all associated projects
 	 * @return
 	 */
 	@GetMapping("/getProjects")
-	public List<Project> defaultEndpoint (@RequestParam Integer id) {
+	public List<ProjectVO> getProjects (@RequestParam Integer id) {
 		log.info("Gathering all projects for user with user Id : {}", id);
 		return projServ.getAllProjectsForUser(id);
 	}
@@ -48,4 +48,15 @@ public class ProjectController {
 		log.info("Deleting project with name : {} and Id : {}", project.getProjectName(), project.getId());
 		projServ.deleteProject(project);
 	}
+
+	/**
+	 * create an end point to get projects by ID
+	 * @Param project ID
+	 */
+	@GetMapping("/getProjectById")
+	public Project getProjectById (@RequestParam Integer id) {
+		log.info("Getting project with Project ID : {}", id);
+		return projServ.getProjectById(id);
+	}
+
 }

@@ -16,7 +16,7 @@ public class Event {
 	@Getter @Setter private String eventTopic;
 	@Getter @Setter private Integer projectId;
 	@Getter @Setter private String eventDescription;
-	@Getter @Setter private Integer eventStatus;
+	@Getter @Setter private String eventStatus;
 	@Getter @Setter private Date createdDate;
-	@Getter @Setter private Date modifiedDate;
+	@Getter @Setter private Date updatedDate;
 }

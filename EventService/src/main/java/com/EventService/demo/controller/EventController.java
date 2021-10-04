@@ -2,13 +2,10 @@ package com.EventService.demo.controller;
 
 import java.util.List;
 
+import com.EventService.demo.Model.EventVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.EventService.demo.Model.Event;
 import com.EventService.demo.Service.EventService;
@@ -20,8 +17,9 @@ import lombok.extern.slf4j.Slf4j;
  * @author adwai
  *
  */
-@Controller
-@RequestMapping("/eventService")
+@RestController
+@RequestMapping("/event")
+@CrossOrigin(origins = "*")
 @Slf4j
 public class EventController {
 	
@@ -48,8 +46,8 @@ public class EventController {
 	/**
 	 * Save event for a Specific project
 	 */
-	@PostMapping("/saveProject")
-	public Event saveEvent(@RequestBody Event event) {
+	@PostMapping("/saveEvent")
+	public Event saveEvent(@RequestBody EventVO event) {
 		return eventServ.saveEvent(event);
 	}
 	
@@ -69,6 +67,16 @@ public class EventController {
 	public String deleteEvent(@RequestBody Event event) {
 		eventServ.deleteProject(event);
 		return "delete event successful";
+	}
+
+	/**
+	 * Get all the events for a specfic project
+	 * @Params project ID
+	 * @return
+	 */
+	@GetMapping("/getEventsForProject")
+	public List<Event> getEventsForProject(@RequestParam Integer id){
+		return eventServ.getEventsForProject(id);
 	}
 	
 }

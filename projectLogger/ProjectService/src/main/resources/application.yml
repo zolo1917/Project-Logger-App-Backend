@@ -3,8 +3,8 @@ spring:
     name: ProjectService
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/project_logger
-    username: root
+    url: jdbc:mysql://192.168.0.24:3306/projectLogger
+    username: devroot
     password: root
   cloud:
     consul:

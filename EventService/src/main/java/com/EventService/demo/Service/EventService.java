@@ -2,6 +2,7 @@ package com.EventService.demo.Service;
 
 import java.util.List;
 
+import com.EventService.demo.Model.EventVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +18,19 @@ public class EventService {
 	@Autowired
 	private EventRepository eventRepo;
 	
-	public Event saveEvent(Event event) {
+	public Event saveEvent(EventVO eventVO) {
 		log.info("Create new event" );
-		return eventRepo.save(event);
+		// Create a converter method for turning VO to event model
+		return eventRepo.save(convertEventVOToEvent(eventVO));
+	}
+
+	private Event convertEventVOToEvent(EventVO eventVO){
+		Event event = new Event();
+		event.setEventTopic(eventVO.getTopic());
+		event.setEventStatus(eventVO.getStatus());
+		event.setEventDescription(eventVO.getEventDesc());
+		event.setProjectId(eventVO.getProjId());
+		return event;
 	}
 	
 	public Event updateEvent(Event event) {
